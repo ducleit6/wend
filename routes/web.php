@@ -4,6 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\FAQsController;
+use App\Http\Controllers\CategoryFAQsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +21,24 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(['prefix'=>'admin'],function(){
-    Route::get('/',[AdminController::class,'index'])->name('admin.home');
+    Route::get('/',[AdminController::class, 'index'])->name('admin.index');
+    Route::get('/login.html',[AdminController::class ,'login'])->name('login');
+    Route::post('/login.html',[AdminController::class ,'check_login'])->name('check-login');
+    Route::get('/register.html',[AdminController::class ,'register'])->name('register');
+    Route::post('/register.html',[AdminController::class ,'check_register'])->name('check-register');
+    Route::get('/logout.html',[AdminController::class ,'logout'])->name('logout');
+    
+    Route::group(['prefix' => 'admin'],function(){  
+        Route::get('/',[AdminController::class ,'admin','middleware'=>'auth'])->name('admin');
+        Route::get('/create.html',[AdminController::class ,'create_admin'])->name('create-acc');
+        Route::post('/store.html',[AdminController::class ,'store_admin'])->name('store-acc');
+        Route::get('edit/{acc}',[AdminController::class ,'edit_admin'])->name('edit-acc');
+        Route::put('update/{acc}',[AdminController::class ,'update_admin'])->name('update-acc');
+        Route::delete('delete/{acc}',[AdminController::class, 'delete_admin'])->name('delete_acc');
+    });
+    
     Route::group(['prefix'=>'category'],function(){
         Route::get('/',[CategoryController::class,'index'])->name('category.index');
         Route::get('/create',[CategoryController::class,'create'])->name('category.create');
@@ -50,39 +67,42 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('restore-all',[DestinationController::class,'restoreAll'])->name('destination.restoreAll');
         Route::post('forcedelete-all',[DestinationController::class,'forcedeleteAll'])->name('destination.forcedeleteAll');
     });
-});
-Route::group(['prefix' => 'services'], function(){
-    Route::get('/',[ServicesController::class, 'index'])->name('services.index');
-    Route::get('create.html',[ServicesController::class, 'create'])->name('services.create');
-    Route::post('store',[ServicesController::class, 'store'])->name('services.store');
-    Route::get('edit/{id}',[ServicesController::class, 'edit'])->name('services.edit');
-    Route::put('update/{id}',[ServicesController::class, 'update'])->name('services.update');
-    Route::delete('delete/{id}',[ServicesController::class, 'delete'])->name('services.delete');
+
+    Route::group(['prefix' => 'services'], function(){
+        Route::get('/',[ServicesController::class, 'index'])->name('services.index');
+        Route::get('create.html',[ServicesController::class, 'create'])->name('services.create');
+        Route::post('store',[ServicesController::class, 'store'])->name('services.store');
+        Route::get('edit/{id}',[ServicesController::class, 'edit'])->name('services.edit');
+        Route::put('update/{id}',[ServicesController::class, 'update'])->name('services.update');
+        Route::delete('delete/{id}',[ServicesController::class, 'delete'])->name('services.delete');
+    });
+
+    Route::group(['prefix' => 'blogs'], function(){
+        Route::get('/',[BlogsController::class, 'index'])->name('blogs.index');
+        Route::get('edit/{acc}',[BlogsController::class, 'editAdmin'])->name('blogs.editAdmin');
+        Route::put('update/{acc}',[BlogsController::class, 'updateAdmin'])->name('blogs.updateAdmin');
+    });
+
+    Route::group(['prefix' => 'FAQs'], function(){
+        Route::get('/',[FAQsController::class, 'index'])->name('FAQs.index');
+        Route::get('create.html',[FAQsController::class, 'create'])->name('FAQs.create');
+        Route::post('store',[FAQsController::class, 'store'])->name('FAQs.store');
+        Route::get('edit/{id}',[FAQsController::class, 'edit'])->name('FAQs.edit');
+        Route::put('update/{id}',[FAQsController::class, 'update'])->name('FAQs.update');
+        Route::delete('delete/{id}',[FAQsController::class, 'delete'])->name('FAQs.delete');
+    });
+
+    Route::group(['prefix' => 'CategoryFAQs'], function(){
+        Route::get('/',[CategoryFAQsController::class, 'index'])->name('CategoryFAQs.index');
+        Route::get('create.html',[CategoryFAQsController::class, 'create'])->name('CategoryFAQs.create');
+        Route::post('store',[CategoryFAQsController::class, 'store'])->name('CategoryFAQs.store');
+        Route::get('edit/{id}',[CategoryFAQsController::class, 'edit'])->name('CategoryFAQs.edit');
+        Route::put('update/{id}',[CategoryFAQsController::class, 'update'])->name('CategoryFAQs.update');
+        Route::delete('delete/{id}',[CategoryFAQsController::class, 'delete'])->name('CategoryFAQs.delete');
+    });
+
 });
 
-Route::group(['prefix' => 'blogs'], function(){
-    Route::get('/',[BlogsController::class, 'index'])->name('blogs.index');
-    Route::get('edit/{acc}',[BlogsController::class, 'editAdmin'])->name('blogs.editAdmin');
-    Route::put('update/{acc}',[BlogsController::class, 'updateAdmin'])->name('blogs.updateAdmin');
-});
-
-Route::group(['prefix' => 'FAQs'], function(){
-    Route::get('/',[FAQsController::class, 'index'])->name('FAQs.index');
-    Route::get('create.html',[FAQsController::class, 'create'])->name('FAQs.create');
-    Route::post('store',[FAQsController::class, 'store'])->name('FAQs.store');
-    Route::get('edit/{id}',[FAQsController::class, 'edit'])->name('FAQs.edit');
-    Route::put('update/{id}',[FAQsController::class, 'update'])->name('FAQs.update');
-    Route::delete('delete/{id}',[FAQsController::class, 'delete'])->name('FAQs.delete');
-});
-
-Route::group(['prefix' => 'CategoryFAQs'], function(){
-    Route::get('/',[CategoryFAQsController::class, 'index'])->name('CategoryFAQs.index');
-    Route::get('create.html',[CategoryFAQsController::class, 'create'])->name('CategoryFAQs.create');
-    Route::post('store',[CategoryFAQsController::class, 'store'])->name('CategoryFAQs.store');
-    Route::get('edit/{id}',[CategoryFAQsController::class, 'edit'])->name('CategoryFAQs.edit');
-    Route::put('update/{id}',[CategoryFAQsController::class, 'update'])->name('CategoryFAQs.update');
-    Route::delete('delete/{id}',[CategoryFAQsController::class, 'delete'])->name('CategoryFAQs.delete');
-});
 Route::get('FAQs.html',[FAQsController::class, 'view'])->name('FAQs.view');
 Route::get('services.html',[ServicesController::class, 'view'])->name('services.view');
 Route::get('blogs.html',[BlogsController::class, 'view'])->name('blogs.view');
