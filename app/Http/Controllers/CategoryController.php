@@ -44,10 +44,13 @@ class CategoryController extends Controller
     public function delete($id){
         $category = new Category();
         $category = $category->find($id);
-        if($category->delete()){
-            return redirect()->route('category.index')->with('yes','Xóa Danh mục thành công');
+        if($category->destinations()->withTrashed()->count() == 0){
+            if($category->delete()){
+                return redirect()->route('category.index')->with('yes','Xóa Danh mục thành công');
+            }
+            return redirect()->back()->with('no','Xóa danh mục thất bại');
         }
-        return redirect()->back()->with('no','Xóa danh mục thất bại');
+        return redirect()->back()->with('no','Danh mục đang có địa điểm tham chiếu, không thể xóa');
     }
     public function deleteAll(Request $req){
         $category = new Category();
@@ -56,11 +59,17 @@ class CategoryController extends Controller
         $error = 0;
         foreach($ids as $id){
             $category = $category->find($id);
-            if($category->delete()){
-                $success +=1;
-            }else{
+            if($category->destinations()->withTrashed()->count() == 0){
+                if($category->delete()){
+                    $success +=1;
+                }else{
+                    $error +=1;
+                }
+            }
+            else{
                 $error +=1;
             }
+            
         }
         if($error == 0){
             return redirect()->back()->with('yes','Xóa nhiều danh mục thành công');
@@ -105,15 +114,10 @@ class CategoryController extends Controller
     public function forceDelete($id){
         $category = new Category();
         $category = $category->withTrashed()->find($id);
-        if($category->destinations()->count() == 0){
-            if($category->forceDelete()){
-                return redirect()->back()->with('yes','Xóa vĩnh viễn danh mục thành công');
-            }
-            return redirect()->back()->with('no','Danh mục đang có địa điểm tham chiếu, không thể xóa');
-
-        }else{
-            return redirect()->back()->with('no','Có lỗi khi thực hiện xóa vĩnh viễn');
+        if($category->forceDelete()){
+            return redirect()->back()->with('yes','Xóa vĩnh viễn danh mục thành công');
         }
+        return redirect()->back()->with('no','Có lỗi khi thực hiện xóa vĩnh viễn');
     }
     public function forcedeleteAll(Request $req){
         $category = new Category();
@@ -122,17 +126,12 @@ class CategoryController extends Controller
         $error = 0;
         foreach($ids as $id){
             $category = $category->withTrashed()->find($id);
-            if($category->destinations()->count() == 0){
-                if($category->forceDelete()){
-                    $success +=1;
-    
-                }else{
-                    $error +=1;
-                }
-            }
-            else{
+            if($category->forceDelete()){
+                $success +=1;
+
+            }else{
                 $error +=1;
-            }         
+            }                    
         }
         if($error == 0){
             return redirect()->back()->with('yes','Xóa vĩnh viễn nhiều danh mục thành công');
