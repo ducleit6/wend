@@ -40,8 +40,8 @@ class DestinationController extends Controller
     }
     public  function update(DestinationUpdateRequest $req,$id){
         $destination = new Destination();
-        $data = $req->only('name','category_id','status');
-        dd($data);
+        $destination = $destination->find($id);
+        $data = $req->only('name','category_id','status'); 
         if($destination->update($data)){
             return redirect()->route('destination.index')->with('yes','Chỉnh sửa Điểm đến thành công');
         }
@@ -76,75 +76,64 @@ class DestinationController extends Controller
         return redirect()->back()->with('no','Có '.$error.' Điểm đến lỗi trong quá trình xóa');
     }
     public function trashed(){
-        // $destination = new Destination();
-        // $datas = $category->getDataTrashed();
-        // return view('admin.category.trashed',compact('datas'));
+        $destination = new Destination();
+        $datas = $destination->getDataTrashed();
+        return view('admin.destination.trashed',compact('datas'));
     }
     public function restore($id){
-        // $category = new Category();
-        // $category = $category->withTrashed()->find($id);
-        // if($category->restore()){
-        //     return redirect()->route('category.index')->with('yes','Khôi phục danh mục thành công');
-        // }
-        // return redirect()->back()->with('no','Khôi phục danh mục thất bại');
+        $destination = new Destination();
+        $destination = $destination->withTrashed()->find($id);
+        if($destination->restore()){
+            return redirect()->route('destination.index')->with('yes','Khôi phục Điểm đến thành công');
+        }
+        return redirect()->back()->with('no','Khôi phục Điểm đến thất bại');
 
     }
     public function restoreAll(Request $req){
-        // $category = new Category();
-        // $ids = $req->id;
-        // $success = 0;
-        // $error = 0;
-        // foreach($ids as $id){
-        //     $category = $category->withTrashed()->find($id);
-        //     if($category->restore()){
-        //         $success +=1;
+        $destination = new Destination();
+        $ids = $req->id;
+        $success = 0;
+        $error = 0;
+        foreach($ids as $id){
+            $destination = $destination->withTrashed()->find($id);
+            if($destination->restore()){
+                $success +=1;
 
-        //     }else{
-        //         $error +=1;
+            }else{
+                $error +=1;
 
-        //     }
-        // }
-        // if($error == 0){
-        //     return redirect()->route('category.index')->with('yes','Khôi phục nhiều danh mục thành công');
-        // }
-        // return redirect()->back()->with('no','Có '.$error.' Danh mục lỗi trong quá trình khôi phục');
-
+            }
+        }
+        if($error == 0){
+            return redirect()->route('destination.index')->with('yes','Khôi phục nhiều Điểm đến thành công');
+        }
+        return redirect()->back()->with('no','Có '.$error.' Điểm đến lỗi trong quá trình khôi phục');
     }
     public function forceDelete($id){
-        // $category = new Category();
-        // $category = $category->withTrashed()->find($id);
-        // if($category->destinations()->count() == 0){
-        //     if($category->forceDelete()){
-        //         return redirect()->back()->with('yes','Xóa vĩnh viễn danh mục thành công');
-        //     }
-        //     return redirect()->back()->with('no','Danh mục đang có địa điểm tham chiếu, không thể xóa');
-
-        // }else{
-        //     return redirect()->back()->with('no','Có lỗi khi thực hiện xóa vĩnh viễn');
-        // }
+        $destination = new Destination();
+        $destination = $destination->withTrashed()->find($id);
+        if($destination->forceDelete()){
+            return redirect()->back()->with('yes','Xóa vĩnh viễn Điểm đến thành công');
+        }
+        return redirect()->back()->with('no','Điểm đến đang có địa điểm tham chiếu, không thể xóa');
     }
     public function forcedeleteAll(Request $req){
-        // $category = new Category();
-        // $ids = $req->id;
-        // $success = 0;
-        // $error = 0;
-        // foreach($ids as $id){
-        //     $category = $category->withTrashed()->find($id);
-        //     if($category->destinations()->count() == 0){
-        //         if($category->forceDelete()){
-        //             $success +=1;
-    
-        //         }else{
-        //             $error +=1;
-        //         }
-        //     }
-        //     else{
-        //         $error +=1;
-        //     }         
-        // }
-        // if($error == 0){
-        //     return redirect()->back()->with('yes','Xóa vĩnh viễn nhiều danh mục thành công');
-        // }
-        // return redirect()->back()->with('no','Có '.$error.' Danh mục lỗi trong quá trình xóa vĩnh viễn');
+        $destination = new Destination();
+        $ids = $req->id;
+        $success = 0;
+        $error = 0;
+        foreach($ids as $id){
+            $destination = $destination->withTrashed()->find($id);         
+             
+            if($destination->forceDelete()){
+                $success +=1;
+            }else{
+                $error +=1;
+            }                    
+        }
+        if($error == 0){
+            return redirect()->back()->with('yes','Xóa vĩnh viễn nhiều Điểm đến thành công');
+        }
+        return redirect()->back()->with('no','Có '.$error.' Điểm đến lỗi trong quá trình xóa vĩnh viễn');
     }
 }

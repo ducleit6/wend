@@ -32,13 +32,13 @@
                         <div class="col-sm-10">
                             <div class="form-check form-check-inline w-100">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="" value="1" checked>
+                                    <input class="form-check-input" type="radio" name="status" id="" value="1" {{$data->status == 1 ? 'checked': ''}}>
                                     Hiển Thị
                                 </label>
                             </div>
                             <div class="form-check form-check-inline w-100">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="radio" name="status" id="" value="0">
+                                    <input class="form-check-input" type="radio" name="status" id="" value="0" {{$data->status == 0 ? 'checked': ''}}>
                                     Tạm Ẩn
                                 </label>
                             </div>
