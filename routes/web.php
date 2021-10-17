@@ -68,8 +68,6 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('restore-all',[DestinationController::class,'restoreAll'])->name('destination.restoreAll');
         Route::post('forcedelete-all',[DestinationController::class,'forcedeleteAll'])->name('destination.forcedeleteAll');
     });
-<<<<<<< HEAD
-=======
     Route::group(['prefix'=>'hotel'],function(){
         Route::get('/',[HotelController::class,'index'])->name('hotel.index');
         Route::get('/create',[HotelController::class,'create'])->name('hotel.create');
@@ -84,17 +82,6 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('restore-all',[HotelController::class,'restoreAll'])->name('hotel.restoreAll');
         Route::post('forcedelete-all',[HotelController::class,'forcedeleteAll'])->name('hotel.forcedeleteAll');
     });
-});
-Route::group(['prefix' => 'services'], function(){
-    Route::get('/',[ServicesController::class, 'index'])->name('services.index');
-    Route::get('create.html',[ServicesController::class, 'create'])->name('services.create');
-    Route::post('store',[ServicesController::class, 'store'])->name('services.store');
-    Route::get('edit/{id}',[ServicesController::class, 'edit'])->name('services.edit');
-    Route::put('update/{id}',[ServicesController::class, 'update'])->name('services.update');
-    Route::delete('delete/{id}',[ServicesController::class, 'delete'])->name('services.delete');
-});
->>>>>>> f29da98 (hotel)
-
     Route::group(['prefix' => 'services'], function(){
         Route::get('/',[ServicesController::class, 'index'])->name('services.index');
         Route::get('create.html',[ServicesController::class, 'create'])->name('services.create');
