@@ -4,11 +4,15 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\AdminController;
+<<<<<<< HEAD
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\FAQsController;
 use App\Http\Controllers\CategoryFAQsController;
+=======
+use App\Http\Controllers\HotelController;
+>>>>>>> f29da98 (hotel)
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +71,32 @@ Route::group(['prefix'=>'admin'],function(){
         Route::post('restore-all',[DestinationController::class,'restoreAll'])->name('destination.restoreAll');
         Route::post('forcedelete-all',[DestinationController::class,'forcedeleteAll'])->name('destination.forcedeleteAll');
     });
+<<<<<<< HEAD
+=======
+    Route::group(['prefix'=>'hotel'],function(){
+        Route::get('/',[HotelController::class,'index'])->name('hotel.index');
+        Route::get('/create',[HotelController::class,'create'])->name('hotel.create');
+        Route::post('/store',[HotelController::class,'store'])->name('hotel.store');
+        Route::get('/edit/{id}',[HotelController::class,'edit'])->name('hotel.edit');
+        Route::put('/update/{id}',[HotelController::class,'update'])->name('hotel.update'); 
+        Route::delete('/delete/{id}',[HotelController::class,'delete'])->name('hotel.delete');
+        Route::get('/trashed',[HotelController::class,'trashed'])->name('hotel.trashed'); 
+        Route::get('/restore/{id}',[HotelController::class,'restore'])->name('hotel.restore');
+        Route::get('/force-delete/{id}',[HotelController::class,'forceDelete'])->name('hotel.forceDelete');
+        Route::delete('delete-all',[HotelController::class,'deleteAll'])->name('hotel.deleteAll');
+        Route::post('restore-all',[HotelController::class,'restoreAll'])->name('hotel.restoreAll');
+        Route::post('forcedelete-all',[HotelController::class,'forcedeleteAll'])->name('hotel.forcedeleteAll');
+    });
+});
+Route::group(['prefix' => 'services'], function(){
+    Route::get('/',[ServicesController::class, 'index'])->name('services.index');
+    Route::get('create.html',[ServicesController::class, 'create'])->name('services.create');
+    Route::post('store',[ServicesController::class, 'store'])->name('services.store');
+    Route::get('edit/{id}',[ServicesController::class, 'edit'])->name('services.edit');
+    Route::put('update/{id}',[ServicesController::class, 'update'])->name('services.update');
+    Route::delete('delete/{id}',[ServicesController::class, 'delete'])->name('services.delete');
+});
+>>>>>>> f29da98 (hotel)
 
     Route::group(['prefix' => 'services'], function(){
         Route::get('/',[ServicesController::class, 'index'])->name('services.index');
