@@ -4,15 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\AdminController;
-<<<<<<< HEAD
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\FAQsController;
 use App\Http\Controllers\CategoryFAQsController;
-=======
 use App\Http\Controllers\HotelController;
->>>>>>> f29da98 (hotel)
 
 /*
 |--------------------------------------------------------------------------
