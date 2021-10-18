@@ -1,12 +1,11 @@
-@extends('layout.master')
-@section('main')
+@extends('layout.nobody')
+@section('css')
+<link rel="stylesheet" href="{{url('resources/views/home/assets')}}/css/loginn.css">
+@stop()
+@section('table')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4">
-        <form action="{{route('home-add-register')}}" method="POST" role="form" enctype="multipart/form-data">
-            @csrf
-            <legend>Form Register</legend>
+    <div class="login-box">
+        <h2>Đăng ký</h2>
             @if(Session::has('no'))        
                 <div class="alert alert-danger">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -19,80 +18,64 @@
                     <strong>Hi!</strong> {{Session::get('yes')}}
                 </div>
             @endif
-            <div class="form-group">
-                <label for="name">Tên</label>
-                <input type="text" class="form-control" name="name" id="name" placeholder="Tên ..." value="{{old('name')}}">
-            </div>
-            @error('name')
-                <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
-            @enderror
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control" name="email" id="email" placeholder="Email ..." value="{{old('email')}}">
-            </div>
-            @error('email')
-                <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
-            @enderror
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone ..." value="{{old('phone')}}">
-            </div>
-            @error('phone')
-                <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
-            @enderror
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" class="form-control" name="address" id="address" placeholder="Address ..." value="{{old('address')}}">
-            </div>
-            @error('address')
-                <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
-            @enderror
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Password ..." value="{{old('password')}}">
-            </div>
-            @error('password')
-                <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
-            @enderror
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Confirm Password ..." value="{{old('confirm_password')}}">
-            </div>
-            @error('confirm_password')
-                <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
-            @enderror
-            <label for="gender">Gender</label>
-            <select name="gender" id="gender" class="form-control">
-                <option value="0">Nam</option>
-                <option value="1">Nữ</option>
-                <option value="2">Khác</option>
-            </select>
-            <div class="form-group">
-                <label for="avt">Avatar</label>
-                <input type="file" class="form-control" id="select_file" name="image" id="avt">
-                @error('image')
-                    <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
+        <form action="{{route('home-add-register')}}" method="POST" role="form" >
+        @csrf
+            <div class="user-box">
+                <input type="text" name="name" value="{{old('name')}}">
+                <label>Tên</label>
+                @error('name')
+                <h6>{{$message}}</h6>
                 @enderror
-            </div> 
-             <div class="row">
-                <div class="col-8">
-                    <div class="icheck-primary">
-                        <input type="checkbox" name="remember" id="remember">
-                        <label for="remember">
-                            Remember Me
-                        </label>
-                    </div>
-                </div>
             </div>
-            <div class="row">
-                <div class="col-6"><button type="submit" class="btn btn-primary">Submit</button></div>
-                <div class="col-6"><button type="button" class="btn btn-success"><a href="{{route('home-login')}}">Login</a></button></div>
+            <div class="user-box">
+                <input type="text" name="email" value="{{old('email')}}">
+                <label>Email</label>
+                @error('email')
+                <h6>{{$message}}</h6>
+                @enderror
             </div>
+            <div class="user-box">
+                <input type="text" name="phone" value="{{old('phone')}}">
+                <label>Số điện thoại</label>
+                @error('phone')
+                <h6>{{$message}}</h6>
+                @enderror
+            </div><div class="user-box">
+                <input type="text" name="address" value="{{old('address')}}">
+                <label>Địa chỉ</label>
+                @error('address')
+                <h6>{{$message}}</h6>
+                @enderror
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" value="{{old('password')}}">
+                <label>Mật khẩu</label>
+                @error('password')
+                <h6 style="color:red;font-style:Italic;text-decoration:underline">{{$message}}</h6>
+                @enderror
+            </div>
+            <div class="user-box">
+                <input type="password" name="confirm_password" value="{{old('confirm_password')}}">
+                <label>Xác nhận mật khẩu</label>
+                @error('confirm_password')
+                <h6>{{$message}}</h6>
+                @enderror
+            </div>
+            <div class="form-radio">
+                <label>Giới tính</label>
+                <input type="radio" name="gender" checked>Nam
+                <input type="radio" name="gender">Nữ
+                <input type="radio" name="gender">Khác
+            </div>
+            <div class="user-box">
+                <input type="file" name="image" value="{{old('image')}}">
+                <label>Ảnh đại diện</label>
+                @error('image')
+                <h6>{{$message}}</h6>
+                @enderror
+            </div>
+            <button type="submit" class="button-submit-register"><span></span><span></span><span></span><span></span>Đăng Ký</button>
+            <a href="{{route('home-register')}}"><span></span><span></span><span></span><span></span>Quay lại</a>
         </form>
-        </div>
     </div>
-</div>
-
-
-
 @stop()
