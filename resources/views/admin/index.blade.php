@@ -3,7 +3,6 @@
 @section('title','Danh sách Danh mục')
 @section('main')
 
-
 @stop()
 @section('js')
 <script>

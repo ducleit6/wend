@@ -13,9 +13,6 @@ use Str;
 
 class AdminController extends Controller
 {
-    public function index(){
-        return view('admin.index');
-    }
     /********************** CRUD admin ****************************/
     public function admin(Request $req){
         $acc = Admin::searchFilter($req)->paginate(3);

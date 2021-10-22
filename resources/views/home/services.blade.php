@@ -112,7 +112,7 @@
             <div class="row mt-30">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="team-box">
-                        <img src="img/agent/thay-nang.jpg" alt="img" />
+                        <img src="{{ url('public/project') }}/img/agent/thay-nang.jpg" alt="img" />
                         <div class="box-content ">
                             <h3 class="title">Năng Đoàn</h3>
                             <p class="posation">IT Professor</p>
@@ -133,7 +133,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="team-box">
-                        <img src="img/agent/thay-luong.jpg" alt="img" />
+                        <img src="{{ url('public/project') }}/img/agent/thay-luong.jpg" alt="img" />
                         <div class="box-content">
                             <h3 class="title">Lương Nguyễn</h3>
                             <p class="posation">IT Professor</p>

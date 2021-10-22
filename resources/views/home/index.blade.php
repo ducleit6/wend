@@ -183,13 +183,13 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                     <div class="owl-carousel owl-theme ab-slid">
-                        <div class="item"><img src="{{url('resources/views/home/assets')}}/img/common-img/about-img.png" alt=""></div>
-                        <div class="item"><img src="{{url('resources/views/home/assets')}}/img/common-img/about-img.png" alt=""></div>
-                        <div class="item"><img src="{{url('resources/views/home/assets')}}/img/common-img/about-img.png" alt=""></div>
-                        <div class="item"><img src="{{url('resources/views/home/assets')}}/img/common-img/about-img.png" alt=""></div>
-                        <div class="item"><img src="{{url('resources/views/home/assets')}}/img/common-img/about-img.png" alt=""></div>
-                        <div class="item"><img src="{{url('resources/views/home/assets')}}/img/common-img/about-img.png" alt=""></div>
-                        <div class="item"><img src="{{url('resources/views/home/assets')}}/img/common-img/about-img.png" alt=""></div>
+                        <div class="item"><img src="{{ url('public/project') }}/img/common-img/about-img.png" alt=""></div>
+                        <div class="item"><img src="{{ url('public/project') }}/img/common-img/about-img.png" alt=""></div>
+                        <div class="item"><img src="{{ url('public/project') }}/img/common-img/about-img.png" alt=""></div>
+                        <div class="item"><img src="{{ url('public/project') }}/img/common-img/about-img.png" alt=""></div>
+                        <div class="item"><img src="{{ url('public/project') }}/img/common-img/about-img.png" alt=""></div>
+                        <div class="item"><img src="{{ url('public/project') }}/img/common-img/about-img.png" alt=""></div>
+                        <div class="item"><img src="{{ url('public/project') }}/img/common-img/about-img.png" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -200,7 +200,7 @@
             <div class="row">
                 <div class="col-lg-5 d-lg-block d-md-none  d-none">
                     <div class="amazing-img">
-                        <img src="{{url('resources/views/home/assets')}}/img/common-img/amagin.png" alt="">
+                        <img src="{{ url('public/project') }}/img/common-img/amagin.png" alt="">
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12">
@@ -212,7 +212,7 @@
                         </p>
                     </div>
                     <div class="grun-img shape-3">
-                        <img src="{{url('resources/views/home/assets')}}/img/common-img/roted.png" alt="img">
+                        <img src="{{ url('public/project') }}/img/common-img/roted.png" alt="img">
                     </div>
                     <div class="all-service-travel  d-flex  justify-content-center .flex-sm-column">
                         <div class="flight-cover">
@@ -253,7 +253,7 @@
                 <div class="slider-des owl-carousel owl-theme">
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-1.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-1.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -280,7 +280,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-2.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-2.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -307,7 +307,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-3.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-3.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -334,7 +334,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-1.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-1.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -361,7 +361,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-2.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-2.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -388,7 +388,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-3.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-3.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -415,7 +415,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-1.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-1.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -442,7 +442,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-2.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-2.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -469,7 +469,7 @@
                     </div>
                     <div class="des-cov item">
                         <div class="des-img">
-                            <a href="tour-details.html"><img src="{{url('resources/views/home/assets')}}/img/tour-destanation/d-3.png" alt="img" /></a>
+                            <a href="tour-details.html"><img src="{{ url('public/project') }}/img/tour-destanation/d-3.png" alt="img" /></a>
                         </div>
                         <div class="des-para">
                             <div class="dayt">
@@ -529,7 +529,7 @@
             <div class="row mt-30">
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="team-box">
-                        <img src="{{url('resources/views/home/assets')}}/img/agent/thay-nang.jpg" alt="img" />
+                        <img src="{{ url('public/project') }}/img/agent/thay-nang.jpg" alt="img" />
                         <div class="box-content ">
                             <h3 class="title">Năng Đoàn</h3>
                             <p class="posation">IT Professor</p>
@@ -550,7 +550,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="team-box">
-                        <img src="{{url('resources/views/home/assets')}}/img/agent/thay-luong.jpg" alt="img" />
+                        <img src="{{ url('public/project') }}/img/agent/thay-luong.jpg" alt="img" />
                         <div class="box-content">
                             <h3 class="title">Lương Nguyễn</h3>
                             <p class="posation">IT Professor</p>
@@ -571,7 +571,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                     <div class="team-box">
-                        <img src="{{url('resources/views/home/assets')}}/img/agent/me.jpg" alt="img" />
+                        <img src="{{ url('public/project') }}/img/agent/me.jpg" alt="img" />
                         <div class="box-content">
                             <h3 class="title">Ender Lee</h3>
                             <p class="posation">Web developer</p>
@@ -604,7 +604,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="vt-img">
-                        <img src="{{url('resources/views/home/assets')}}/img/common-img/video.png" alt="img" />
+                        <img src="{{ url('public/project') }}/img/common-img/video.png" alt="img" />
                     </div>
                     <div class="video-play-test">
                         <button type="button" data-toggle="modal" data-target="#exampleModal">
@@ -653,7 +653,7 @@
                                         <i class="flaticon-quotation"></i>
                                     </div>
                                     <div class="test-moinal-ing-left">
-                                        <img src="{{url('resources/views/home/assets')}}/img/client/client-1.jpg" alt="img" />
+                                        <img src="{{ url('public/project') }}/img/client/client-1.jpg" alt="img" />
                                     </div>
                                 </div>
                             </div>
@@ -692,7 +692,7 @@
                                         <i class="flaticon-quotation"></i>
                                     </div>
                                     <div class="test-moinal-ing-left">
-                                        <img src="{{url('resources/views/home/assets')}}/img/client/client-2.jpg" alt="img" />
+                                        <img src="{{ url('public/project') }}/img/client/client-2.jpg" alt="img" />
                                     </div>
                                 </div>
                             </div>
@@ -731,7 +731,7 @@
                                         <i class="flaticon-quotation"></i>
                                     </div>
                                     <div class="test-moinal-ing-left">
-                                        <img src="{{url('resources/views/home/assets')}}/img/client/client-3.jpg" alt="img" />
+                                        <img src="{{ url('public/project') }}/img/client/client-3.jpg" alt="img" />
                                     </div>
                                 </div>
                             </div>

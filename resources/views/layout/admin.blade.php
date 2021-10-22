@@ -15,72 +15,7 @@
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <div class="sidebar" style="overflow-y: revert">
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="{{url('public/admin')}}/dist/img/avataer.jpg" class="img-circle elevation-2"
-                            alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Hi, Admin </a>
-                        <a href="" class="d-block">Thoát</a>
-                    </div>
-                </div>
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Quản Lý Danh mục
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item p-2">
-                                    <a href="{{route('category.index')}}" class="nav-link">
-                                        <i class="fas fa-list-ul nav-icon"></i>
-                                        <p>Danh sách</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item p-2">
-                                    <a href="{{route('category.trashed')}}" class="nav-link">
-                                        <i class="fas fa-trash nav-icon"></i>
-                                        <p>Thùng rác</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-map-marked"></i>
-                                <p>
-                                    Quản Lý Điểm Đến
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item p-2">
-                                    <a href="{{route('destination.index')}}" class="nav-link">
-
-                                        <i class="fas fa-list-ul nav-icon"></i>
-                                        <p>Danh sách</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item p-2">
-                                    <a href="{{route('destination.trashed')}}" class="nav-link">
-                                        <i class="fas fa-trash nav-icon"></i>
-                                        <p>Thùng rác</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
+        <x-admin-aside />
         <div class="content-wrapper">
             <section class="content-header">
                 <div class="container-fluid">
