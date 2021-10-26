@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{url('public/admin')}}/dist/css/adminlte.min.css">
     @yield('css')
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -56,6 +57,7 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-map-marked"></i>
+
                                 <p>
                                     Quản Lý Điểm Đến
                                     <i class="right fas fa-angle-left"></i>
@@ -73,6 +75,143 @@
                                     <a href="{{route('destination.trashed')}}" class="nav-link">
                                         <i class="fas fa-trash nav-icon"></i>
                                         <p>Thùng rác</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+
+                                <i class="nav-icon fas fa-plane-departure"></i>
+                                <p>
+                                    Quản Lý Chuyến đi
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item p-2">
+                                    <a href="{{route('tour.index')}}" class="nav-link">
+
+                                        <i class="fas fa-list-ul nav-icon"></i>
+                                        <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <!-- <li class="nav-item p-2">
+                                    <a href="{{route('destination.trashed')}}" class="nav-link">
+                                        <i class="fas fa-trash nav-icon"></i>
+                                        <p>Thùng rác</p>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    Admin
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('admin')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Admin List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('create-acc')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Admin Plus</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Quản lý dịch vụ
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('services.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('services.create')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm mới</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Quản lý Bài Đăng
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('blogs.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Quản lý Câu hỏi thường gặp
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('FAQs.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('FAQs.create')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm mới</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Quản lý danh mục câu hỏi
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('CategoryFAQs.index')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Danh sách</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('CategoryFAQs.create')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Thêm mới</p>
                                     </a>
                                 </li>
                             </ul>
@@ -141,4 +280,5 @@
     </script>
     @endif
 </body>
+
 </html>
