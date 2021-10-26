@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Hotel extends Model
 {
-    use HasFactory;
-    protected $fillable = ['name','destination_id','status','descripton'];
+    use HasFactory,SoftDeletes ;
+    protected $fillable = ['name','destination_id','status','description'];
     public function destinations(){
         return $this->hasOne(Destination::class,'id','destination_id');
     }
@@ -39,8 +41,8 @@ class Hotel extends Model
     public function getDataTrashed($i = 10){
         return $this->onlyTrashed()->searchFilter()->paginate($i);
     }
-    // public function addData($req){
-    //     $data = $req->only('name','category_id','status');
-    //     return Destination::create($data);
-    // }
+    public function addData($req){
+        $data = $req->only('name','destination_id','description','status');
+        return Hotel::create($data);
+    }
 }
