@@ -143,6 +143,7 @@ Route::group(['prefix' => 'blogs','middleware'=>'user'], function(){
 
 /*****************************************Login - Register **************************************/
 Route::get('/home.html',[HomeController::class , 'home'])->name('home');
+Route::get('/tour-pagkages.html',[HomeController::class , 'tourpagkages'])->name('home.tourpagkages');
 Route::get('/login.html',[HomeController::class , 'login_user'])->name('home-login');
 Route::post('/login.html',[HomeController::class , 'check_login_user'])->name('home-check-login');
 Route::get('/register.html',[HomeController::class , 'register_user'])->name('home-register');

@@ -10,6 +10,8 @@ use App\Http\Requests\UpdateRequest;
 use App\Models\User;
 use App\Models\Ranting;
 use App\Models\LoginFunction;
+use App\Models\Tours;
+use App\Models\Destination;
 use Auth;
 use Str;
 use Mail;
@@ -17,7 +19,16 @@ class HomeController extends Controller
 {
     public function home()
     {
-        return view('home.index');
+        $tour = new Tours();
+        $destination = Destination::all();
+        $datas = $tour->paginate(9);
+        return view('home.index',compact('datas','destination'));
+    }
+    public function tourpagkages(){
+        $tour = new Tours();
+        $destination = Destination::all();
+        $datas = $tour->paginate(9);
+        return view('home.pagkages',compact('datas','destination'));
     }
     public function ranting(Request $req){
         $data = $req->only('user_id','tour_id','services','hospitality','room','comfort','satisfasion','cleanliness','comment');
