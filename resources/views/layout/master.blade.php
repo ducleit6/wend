@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light col-12">
-                    <a class="navbar-brand" href="index.html"><img src="{{ url('public/project') }}/img/logo.png" alt=""></a>
+                    <a class="navbar-brand" href="{{route('home')}}"><img src="{{ url('public/project') }}/img/logo.png" alt=""></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fas fa-bars"></i>
                     </button>

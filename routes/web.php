@@ -25,7 +25,6 @@ use App\Http\Controllers\TourController;
 
 
 Route::group(['prefix'=>'admin'],function(){
-    Route::get('/',[AdminController::class, 'index'])->name('admin.index');
     Route::get('/login.html',[AdminController::class ,'login'])->name('login');
     Route::post('/login.html',[AdminController::class ,'check_login'])->name('check-login');
     Route::get('/register.html',[AdminController::class ,'register'])->name('register');
