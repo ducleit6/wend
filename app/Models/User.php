@@ -17,11 +17,8 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $table = 'users';
+    protected $fillable = ['name','image','email','phone','address','gender','password','remember_token','verity','status','deleted_at'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,4 +38,22 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function blogs(){
+        return $this->hasMany(Blogs::class, 'user_id', 'id');
+    }
+     public function scopeSearchFilter($query)
+    {
+        if(request()->key){
+            $query = $query->where('name','like','%'.request()->key.'%');
+        }
+        if(request()->order)
+        {
+            $order = explode('-',request()->order);
+            $orderBy = isset($order[0]) ? $order[0] : 'id';
+            $orderValue = isset($order[1]) ? $order[1] : 'DESC';
+            $query  = $query -> orderBy($orderBy,$orderValue);
+        }
+        return $query;
+    }
 }

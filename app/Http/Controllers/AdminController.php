@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\AdminRequest;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterAdminRequest;
 use App\Models\AdminFunction;
 use App\Models\Admin;
 use App\Models\User;
@@ -15,6 +16,11 @@ class AdminController extends Controller
 {
     public function index(){
         return view('admin.index');
+    }
+    public function user_view(Request $req)
+    {
+        $acc = User::searchFilter($req)->paginate(3);
+        return view('admin.user.index',compact('acc'));
     }
     /********************** CRUD admin ****************************/
     public function admin(Request $req){
@@ -107,19 +113,24 @@ class AdminController extends Controller
     public function register(){
         return view('admin.register');
     }
-    public function check_register(AdminRequest $req)
+    public function check_register(RegisterAdminRequest $req)
     {
         $pass_hashed = bcrypt($req->password);
+        $ex = $req->image->extension();
+        $file_name = 'ADMIN-'.time().'-'.Str::random(10).'.'.$ex;
+        $req->image->move(public_path('upload'), $file_name);
         $data = [
             'name' => $req->name,
+            'image' => $file_name,
             'email'=> $req->email,
+            'phone' => $req->phone,
             'password' => $pass_hashed
         ];
         if($req->terms){
-            if($req->password == $req->repass){
-                $add = User::create($data);
+            if($req->password == $req->confirm_password){
+                $add = Admin::create($data);
                 if($add){
-                    return redirect()->route('admin')->with('yes','Đăng ký thành công');
+                    return redirect()->route('login')->with('yes','Đăng ký thành công');
                 }
                 return redirect()->route('register')->with('no','Đăng ký không thành công');
             }else{

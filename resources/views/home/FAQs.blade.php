@@ -33,14 +33,14 @@
                             @foreach($data as $datas)
                             @if($datas->catfaqs_id == 2 && $datas->status == 1)
                             <div class="card wow fadeIn" data-wow-duration="1s">
-                                <div class="card-header" id="heading-1">
+                                <div class="card-header" id="heading-{{$datas->id}}">
                                     <h5 class="mb-0">
-                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-1" aria-expanded="false" aria-controls="collapse-2">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-{{$datas->id}}" aria-expanded="false" aria-controls="collapse-{{$datas->id}}">
                                             {{$datas->name}}
                                         </a>
                                     </h5>
                                 </div>
-                                <div id="collapse-1" class="collapse" data-parent="#accordion" aria-labelledby="heading-1">
+                                <div id="collapse-{{$datas->id}}" class="collapse" data-parent="#accordion" aria-labelledby="heading-{{$datas->id}}">
                                     <div class="card-body">
                                         <p>{{$datas->content}}
                                         </p>
@@ -55,14 +55,14 @@
                             @foreach($data as $datas)
                             @if($datas->catfaqs_id == 3 && $datas->status == 1)
                             <div class="card wow fadeIn" data-wow-duration="1s">
-                                <div class="card-header" id="heading-2">
+                                <div class="card-header" id="heading-{{$datas->id}}">
                                     <h5 class="mb-0">
-                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-{{$datas->id}}" aria-expanded="false" aria-controls="collapse-{{$datas->id}}">
                                             {{$datas->name}}
                                         </a>
                                     </h5>
                                 </div>
-                                <div id="collapse-2" class="collapse" data-parent="#accordion" aria-labelledby="heading-2">
+                                <div id="collapse-{{$datas->id}}" class="collapse" data-parent="#accordion" aria-labelledby="heading-{{$datas->id}}">
                                     <div class="card-body">
                                         <p>{{$datas->content}}
                                         </p>
@@ -77,14 +77,14 @@
                             @foreach($data as $datas)
                             @if($datas->catfaqs_id == 4 && $datas->status == 1)
                             <div class="card wow fadeIn" data-wow-duration="1s">
-                                <div class="card-header" id="heading-3">
+                                <div class="card-header" id="heading-{{$datas->id}}">
                                     <h5 class="mb-0">
-                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                                        <a class="collapsed" role="button" data-toggle="collapse" href="#collapse-{{$datas->id}}" aria-expanded="false" aria-controls="collapse-{{$datas->id}}">
                                             {{$datas->name}}
                                         </a>
                                     </h5>
                                 </div>
-                                <div id="collapse-3" class="collapse" data-parent="#accordion" aria-labelledby="heading-3">
+                                <div id="collapse-{{$datas->id}}" class="collapse" data-parent="#accordion" aria-labelledby="heading-{{$datas->id}}">
                                     <div class="card-body">
                                         <p>{{$datas->content}}
                                         </p>

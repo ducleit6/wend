@@ -25,7 +25,6 @@ class FAQsAddRequest extends FormRequest
     {
         return [
             'name'=>'required|unique:faqs,name,'.request()->id,
-            'question'=>'required|unique:faqs,question,'.request()->id,
             'content'=>'required',
             'status'=>'required'
         ];
@@ -35,7 +34,6 @@ class FAQsAddRequest extends FormRequest
         return [
             'name.required'=>'Câu hỏi không được để chống',
             'name.unique'=>'Câu hỏi <b>'.request()->name.'</b> đã tồn tại trong CSDL.',
-            'catfaqs_id.required'=>'Câu hỏi không được để chống',
             'content.required'=>'Nội dung không được để chống',
             'status.required'=>'Trạng thái không được để chống'
         ];

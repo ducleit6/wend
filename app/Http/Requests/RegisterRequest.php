@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'name' => 'required',
             'image' => 'required',
             'email' =>'required|email',
-            'phone' => 'required|numeric',
+            'phone' => 'required|numeric|unique:users',
             'address' => 'required',
             'password' => 'required',
             'confirm_password' => 'required',
@@ -44,6 +44,7 @@ class RegisterRequest extends FormRequest
             'email.email' => 'Email không đúng định dạng',
             'phone.required' => 'SĐT không được để trống',
             'phone.numeric' => 'SĐT không được chứa kí tự',
+            'phone.unique'=> 'Số điện thoại <b>'.request()->phone.'</b> đã tồn tại trong CSDL.',
             'password.required' => 'Password không được để trống',
             'confirm_password.required' => 'Confirm password không được để trống',
             'image.mimes' => 'File không hỗ trợ định dạng'

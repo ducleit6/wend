@@ -40,11 +40,6 @@
                           @enderror
                         </div>
                         <div class="form-group">
-                          <label for="gender">Gender</label>
-                          <input type="radio" name="gender" value="0" checked>Nam
-                          <input type="radio" name="gender" value="1" >Nữ
-                        </div>
-                        <div class="form-group">
                           <label for="avt">Avatar</label>
                           <input type="file" class="form-control" id="select_file" name="image" id="avt">
                           @error('image')

@@ -18,19 +18,70 @@
     <div class="wrapper">
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <div class="sidebar" style="overflow-y: revert">
+                @if(Auth::guard('admin')->check())
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{url('public/admin')}}/dist/img/avataer.jpg" class="img-circle elevation-2"
-                            alt="User Image">
+                    <img src="{{url('public/upload')}}/{{Auth::guard('admin')->user()->image}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Hi, Admin </a>
-                        <a href="" class="d-block">Thoát</a>
+                    <a href="#" class="d-block">{{Auth::guard('admin')->user()->name}}</a>
+                    <a href="{{route('logout')}}">LogOut</a>
                     </div>
                 </div>
+                @else
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image">
+                    <img src="{{url('public/admin/assets')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                    <div class="info">
+                    <a href="#" class="d-block">Admin LTE</a>
+                    <a href="{{route('login')}}">Login</a>
+                    </div>
+                </div>
+                @endif
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    Quản Trị Viên
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('admin')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Admin List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('create-acc')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Admin Plus</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-home"></i>
+                                <p>
+                                    Quản Lý Người Dùng
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('user')}}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>User List</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -102,30 +153,6 @@
                                         <p>Thùng rác</p>
                                     </a>
                                 </li> -->
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-home"></i>
-                                <p>
-                                    Admin
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('admin')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Admin List</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('create-acc')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Admin Plus</p>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                         <li class="nav-item">

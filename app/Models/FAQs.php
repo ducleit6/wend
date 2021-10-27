@@ -36,7 +36,7 @@ class FAQs extends Model
     }
 
     public function scopeView(){
-       return $this->paginate(5);
+       return $this->get();
     }
 
     public function add($form_data) {

@@ -34,8 +34,6 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Password</th>
-            <th>Status</th>
             <th>Options</th>
         </tr>
     </thead>
@@ -52,8 +50,6 @@
             <td>{{$acc->name}}</td>
             <td>{{$acc->email}}</td>
             <td>{{$acc->phone}}</td>
-            <td>{{$acc->password}}</td>
-            <td>{{$acc->status}}</td>
             <td>
             <form action="{{route('delete_acc', $acc->id)}}" method="post">
                     @csrf @method('DELETE')

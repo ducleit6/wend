@@ -41,16 +41,6 @@
                           @enderror
                         </div>
                         <div class="form-group">
-                          <label for="gender">Gender</label>
-                          @if($acc->status == 0)
-                          <input type="radio" value="0" checked>Nam
-                          <input type="radio" value="1" >Nữ
-                          @else
-                          <input type="radio" value="0" >Nam
-                          <input type="radio" value="1" checked>Nữ
-                          @endif
-                        </div>
-                        <div class="form-group">
                           <label for="avt">Avatar</label>
                           <input type="file" class="form-control" id="select_file" name="image" id="avt">
                           @error('image')

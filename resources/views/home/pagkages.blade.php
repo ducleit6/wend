@@ -185,7 +185,7 @@
                                 </div>
                                 <div class="real-dat-para">
                                     <p>
-                                        {{$data->description}}
+                                        {!!$data->description!!}
                                     </p>
                                 </div>
                                 <div class="des-button-icon">

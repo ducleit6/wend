@@ -40,6 +40,9 @@ Route::group(['prefix'=>'admin'],function(){
         Route::put('update/{acc}',[AdminController::class ,'update_admin'])->name('update-acc');
         Route::delete('delete/{acc}',[AdminController::class, 'delete_admin'])->name('delete_acc');
     });
+    Route::group(['prefix' => 'user'],function(){  
+        Route::get('/',[AdminController::class ,'user_view'])->name('user');
+    });
     
     Route::group(['prefix'=>'category'],function(){
         Route::get('/',[CategoryController::class,'index'])->name('category.index');
