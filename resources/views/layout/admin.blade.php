@@ -107,7 +107,7 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-home"></i>
+                                <i class="nav-icon fas fa-user-cog"></i>
                                 <p>
                                     Admin
                                     <i class="right fas fa-angle-left"></i>
@@ -130,7 +130,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fab fa-servicestack"></i>
                                 <p>
                                     Quản lý dịch vụ
                                     <i class="right fas fa-angle-left"></i>
@@ -154,7 +154,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-clipboard"></i>
                                 <p>
                                     Quản lý Bài Đăng
                                     <i class="right fas fa-angle-left"></i>
@@ -172,9 +172,9 @@
 
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-question-circle"></i>
                                 <p>
-                                    Quản lý Câu hỏi thường gặp
+                                    Quản lý Câu hỏi
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
