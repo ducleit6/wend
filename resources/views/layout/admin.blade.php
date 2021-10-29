@@ -116,13 +116,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('admin')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Admin List</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('create-acc')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Admin Plus</p>
                                     </a>
                                 </li>
@@ -139,13 +139,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('services.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Danh sách</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('services.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Thêm mới</p>
                                     </a>
                                 </li>
@@ -163,7 +163,7 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('blogs.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Danh sách</p>
                                     </a>
                                 </li>
@@ -181,13 +181,13 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('FAQs.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Danh sách</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('FAQs.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Thêm mới</p>
                                     </a>
                                 </li>
@@ -195,22 +195,22 @@
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-list"></i>
                                 <p>
-                                    Quản lý danh mục câu hỏi
+                                    Danh mục câu hỏi
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('CategoryFAQs.index')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+
                                         <p>Danh sách</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('CategoryFAQs.create')}}" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        >
                                         <p>Thêm mới</p>
                                     </a>
                                 </li>

@@ -46,14 +46,14 @@ class AdminController extends Controller
         }else{
             return redirect()->route('admin')->with('no','Thêm mới không thành công');
         }
-        
+
     }
     public function edit_admin(Admin $acc)
-    {   
-        return view('admin.admin.edit-admin',compact('acc'));    
+    {
+        return view('admin.admin.edit-admin',compact('acc'));
     }
     public function update_admin(Admin $acc,AdminRequest $req)
-    {   
+    {
         $pass_hashed = bcrypt($req->password);
         $ex = $req->image->extension();
         $file_name = 'ADMIN-'.time().'-'.Str::random(10).'.'.$ex;
@@ -86,6 +86,7 @@ class AdminController extends Controller
     }
     //----------------------------      -Login-   ----------------------------------//
     public function login(){
+
         return view('admin.login');
     }
     public function check_login(LoginRequest $req){
