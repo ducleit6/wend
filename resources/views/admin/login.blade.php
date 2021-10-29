@@ -23,24 +23,24 @@
         </div>
         <div class="card-body">
         @if(Session::has('no'))
-            
+
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Oh!</strong> {{Session::get('no')}}
             </div>
-            
+
         @endif
         @if(Session::has('yes'))
-            
+
             <div class="alert alert-success">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Hi!</strong> {{Session::get('yes')}}
             </div>
-            
+
         @endif
         <p class="login-box-msg">Sign in to start your session</p>
 
-        <form action="{{route('check-login')}}" method="post">
+        <form action="{{route('admin.check-login')}}" method="post">
         @csrf
             <div class="input-group mb-3">
             <input type="email" name="email" class="form-control" placeholder="Email" value="{{old('email')}}">
@@ -87,7 +87,7 @@
             <a href="#">I forgot my password</a>
         </p>
         <p class="mb-0">
-            <a href="{{route('register')}}" class="text-center">Register a new membership</a>
+            <a href="{{route('admin.register')}}" class="text-center">Register a new membership</a>
         </p>
         </div>
         <!-- /.card-body -->

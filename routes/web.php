@@ -22,33 +22,33 @@ use App\Http\Controllers\TourController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/login',[AdminController::class ,'login'])->name('admin.login');
+Route::post('/login',[AdminController::class ,'check_login'])->name('admin.check-login');
+Route::get('/register',[AdminController::class ,'register'])->name('admin.register');
+Route::post('/register',[AdminController::class ,'check_register'])->name('admin.check-register');
+Route::get('/logout',[AdminController::class ,'logout'])->name('admin.logout');
 
-
-Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
     Route::get('/',[AdminController::class, 'index'])->name('admin.index');
-    Route::get('/login.html',[AdminController::class ,'login'])->name('login');
-    Route::post('/login.html',[AdminController::class ,'check_login'])->name('check-login');
-    Route::get('/register.html',[AdminController::class ,'register'])->name('register');
-    Route::post('/register.html',[AdminController::class ,'check_register'])->name('check-register');
-    Route::get('/logout.html',[AdminController::class ,'logout'])->name('logout');
-    
-    Route::group(['prefix' => 'admin'],function(){  
-        Route::get('/',[AdminController::class ,'admin','middleware'=>'auth'])->name('admin');
+
+
+    Route::group(['prefix' => 'admin'],function(){
+        Route::get('/',[AdminController::class ,'admin'])->name('admin');
         Route::get('/create.html',[AdminController::class ,'create_admin'])->name('create-acc');
         Route::post('/store.html',[AdminController::class ,'store_admin'])->name('store-acc');
         Route::get('edit/{acc}',[AdminController::class ,'edit_admin'])->name('edit-acc');
         Route::put('update/{acc}',[AdminController::class ,'update_admin'])->name('update-acc');
         Route::delete('delete/{acc}',[AdminController::class, 'delete_admin'])->name('delete_acc');
     });
-    
+
     Route::group(['prefix'=>'category'],function(){
         Route::get('/',[CategoryController::class,'index'])->name('category.index');
         Route::get('/create',[CategoryController::class,'create'])->name('category.create');
         Route::post('/store',[CategoryController::class,'store'])->name('category.store');
         Route::get('/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
-        Route::put('/update/{id}',[CategoryController::class,'update'])->name('category.update'); 
+        Route::put('/update/{id}',[CategoryController::class,'update'])->name('category.update');
         Route::delete('/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
-        Route::get('/trashed',[CategoryController::class,'trashed'])->name('category.trashed'); 
+        Route::get('/trashed',[CategoryController::class,'trashed'])->name('category.trashed');
         Route::get('/restore/{id}',[CategoryController::class,'restore'])->name('category.restore');
         Route::get('/force-delete/{id}',[CategoryController::class,'forceDelete'])->name('category.forceDelete');
         Route::delete('delete-all',[CategoryController::class,'deleteAll'])->name('category.deleteAll');
@@ -60,9 +60,9 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/create',[DestinationController::class,'create'])->name('destination.create');
         Route::post('/store',[DestinationController::class,'store'])->name('destination.store');
         Route::get('/edit/{id}',[DestinationController::class,'edit'])->name('destination.edit');
-        Route::put('/update/{id}',[DestinationController::class,'update'])->name('destination.update'); 
+        Route::put('/update/{id}',[DestinationController::class,'update'])->name('destination.update');
         Route::delete('/delete/{id}',[DestinationController::class,'delete'])->name('destination.delete');
-        Route::get('/trashed',[DestinationController::class,'trashed'])->name('destination.trashed'); 
+        Route::get('/trashed',[DestinationController::class,'trashed'])->name('destination.trashed');
         Route::get('/restore/{id}',[DestinationController::class,'restore'])->name('destination.restore');
         Route::get('/force-delete/{id}',[DestinationController::class,'forceDelete'])->name('destination.forceDelete');
         Route::delete('delete-all',[DestinationController::class,'deleteAll'])->name('destination.deleteAll');
@@ -74,9 +74,9 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/create',[HotelController::class,'create'])->name('hotel.create');
         Route::post('/store',[HotelController::class,'store'])->name('hotel.store');
         Route::get('/edit/{id}',[HotelController::class,'edit'])->name('hotel.edit');
-        Route::put('/update/{id}',[HotelController::class,'update'])->name('hotel.update'); 
+        Route::put('/update/{id}',[HotelController::class,'update'])->name('hotel.update');
         Route::delete('/delete/{id}',[HotelController::class,'delete'])->name('hotel.delete');
-        Route::get('/trashed',[HotelController::class,'trashed'])->name('hotel.trashed'); 
+        Route::get('/trashed',[HotelController::class,'trashed'])->name('hotel.trashed');
         Route::get('/restore/{id}',[HotelController::class,'restore'])->name('hotel.restore');
         Route::get('/force-delete/{id}',[HotelController::class,'forceDelete'])->name('hotel.forceDelete');
         Route::delete('delete-all',[HotelController::class,'deleteAll'])->name('hotel.deleteAll');
@@ -88,9 +88,9 @@ Route::group(['prefix'=>'admin'],function(){
         Route::get('/create',[TourController::class,'create'])->name('tour.create');
         Route::post('/store',[TourController::class,'store'])->name('tour.store');
         Route::get('/edit/{id}',[TourController::class,'edit'])->name('tour.edit');
-        Route::put('/update/{id}',[TourController::class,'update'])->name('tour.update'); 
+        Route::put('/update/{id}',[TourController::class,'update'])->name('tour.update');
         Route::delete('/delete/{id}',[TourController::class,'delete'])->name('tour.delete');
-        Route::get('/trashed',[TourController::class,'trashed'])->name('tour.trashed'); 
+        Route::get('/trashed',[TourController::class,'trashed'])->name('tour.trashed');
         Route::get('/restore/{id}',[TourController::class,'restore'])->name('tour.restore');
         Route::get('/force-delete/{id}',[TourController::class,'forceDelete'])->name('tour.forceDelete');
         Route::delete('delete-all',[TourController::class,'deleteAll'])->name('tour.deleteAll');
